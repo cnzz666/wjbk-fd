@@ -115,8 +115,8 @@ function getLoginPage() {
 </head>
 <body>
 <div class="login-card">
-  <h1>维基百科镜像站访问验证</h1>
-  <p>请输入访问密码以继续使用镜像站</p>
+  <h1>访问验证</h1>
+  <p>请输入访问密码以继续使用维基百科镜像站</p>
   <form id="loginForm">
     <input type="password" id="passwordInput" placeholder="请输入密码" autofocus>
     <button type="submit">确认</button>
