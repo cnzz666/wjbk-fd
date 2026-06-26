@@ -1,0 +1,4 @@
+name = " wjbk-fd"
+main = "worker.js"
+compatibility_date = "2026-06-26"
+keep_vars = true
