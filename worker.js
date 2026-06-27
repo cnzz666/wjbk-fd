@@ -5,12 +5,12 @@ addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
 
-// ===================== 新增：密码验证配置 =====================
+// ===================== 密码验证配置 =====================
 const PASSWORD = 'wjbk';                 // 访问密码
 const COOKIE_NAME = 'auth_token';
 const COOKIE_MAX_AGE = 86400;            // 1 天
 
-// ===================== 新增：反爬虫配置 =====================
+// ===================== 反爬虫配置 =====================
 const BLOCKED_UA = [
   'Bytespider', 'AhrefsBot', 'SemrushBot', 'DotBot', 'MJ12bot',
   'DataForSeoBot', 'BLEXBot', 'ChatGPT-User', 'GPTBot',
@@ -32,7 +32,7 @@ const BLOCKED_UA = [
   'Nuclei', 'ZAP', 'Nikto', 'Arachni', 'W3C_Validator'
 ];
 
-// ===================== 新增：干扰响应生成器 =====================
+// ===================== 干扰响应生成器 =====================
 function getRandomDecoyResponse() {
   const types = [
     { status: 500, body: 'Internal Server Error' },
@@ -54,7 +54,7 @@ function getRandomDecoyResponse() {
   });
 }
 
-// ===================== 新增：登录页面 HTML =====================
+// ===================== 登录页面 HTML =====================
 function getLoginPage() {
   return `
 <!DOCTYPE html>
@@ -147,7 +147,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
   `;
 }
 
-// ========== 以下为原有代理代码（一字未改，仅在其前插入验证和反爬） ==========
+// ========== 代理代码（在其前插入验证和反爬） ==========
 const str = "/";
 const lastVisitProxyCookie = "__PROXY_VISITEDSITE__";
 const replaceUrlObj = "__location__yproxy__";
@@ -155,7 +155,7 @@ const replaceUrlObj = "__location__yproxy__";
 var thisProxyServerUrlHttps;
 var thisProxyServerUrl_hostOnly;
 
-// ========== 状态栏注入（已修改文字） ==========
+// ========== 状态栏注入 ==========
 const statusBarInjection = `
 (function() {
   function injectBar() {
@@ -598,7 +598,7 @@ loadSaved();
 </html>
 `;
 
-// ========== 核心请求处理（已插入验证和反爬，原有代理逻辑完全保留） ==========
+// ========== 核心请求处理（插入验证和反爬，原有代理逻辑保留） ==========
 async function handleRequest(request) {
   const url = new URL(request.url);
   const userAgent = request.headers.get('User-Agent') || '';
