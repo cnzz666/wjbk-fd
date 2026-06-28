@@ -540,6 +540,7 @@ const mainPage = `
         <select id="targetNode">
             <option value="zh.wikipedia.org">zh.wikipedia.org (中文维基百科)</option>
             <option value="en.wikipedia.org">en.wikipedia.org (英文维基百科)</option>
+            <option value="tw.wikipedia.org">en.wikipedia.org (繁体维基百科)</option>
             <option value="www.wikipedia.org">www.wikipedia.org (维基百科门户)</option>
             <option value="commons.wikimedia.org">commons.wikimedia.org (维基共享资源)</option>
         </select>
@@ -642,7 +643,7 @@ async function handleRequest(request) {
     }
   }
 
-  // ---------- 4. 原有代理逻辑（完全未改动） ----------
+  // ---------- 4. 有代理逻辑 ----------
   // 注意：原代码中检查 Bytespider 的语句已合并到上面的黑名单中，故删除原单独判断
   var siteCookie = cookie;  // 复用已有的 cookie 变量
   // 原有的 favicon 和 robots 处理保留
@@ -681,6 +682,7 @@ async function handleRequest(request) {
                    host.endsWith('wiktionary.org') ||
                    host.endsWith('mediawiki.org') ||
                    host.endsWith('wmflabs.org') ||
+                   host.endsWith('tw.wikipadia.org') ||
                    host.endsWith('wikimediafoundation.org');
     if (!isWiki) {
       return getHTMLResponse("<h1>403 Forbidden</h1><br>本镜像代理站仅允许访问维基百科及其姊妹项目，拒绝代理其他站点。");
