@@ -540,7 +540,7 @@ const mainPage = `
         <select id="targetNode">
             <option value="zh.wikipedia.org">zh.wikipedia.org (中文维基百科)</option>
             <option value="en.wikipedia.org">en.wikipedia.org (英文维基百科)</option>
-            <option value="tw.wikipedia.org">en.wikipedia.org (繁体维基百科)</option>
+            <option value="tw.wikipedia.org"> tw.wikipedia.org (繁体维基百科)</option>
             <option value="www.wikipedia.org">www.wikipedia.org (维基百科门户)</option>
             <option value="commons.wikimedia.org">commons.wikimedia.org (维基共享资源)</option>
         </select>
